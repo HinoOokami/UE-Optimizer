@@ -39,5 +39,8 @@ namespace UE_Optimizer
 
         public static string StatusEng => "Done!";
         public static string StatusRus => "Готово!";
+
+        public static string HTEnabledEng => "HT enabled";
+        public static string HTEnabledRus => "HT включён";
     }
 }

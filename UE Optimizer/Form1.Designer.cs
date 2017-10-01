@@ -35,7 +35,13 @@
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblVRAM = new System.Windows.Forms.Label();
             this.numUdVram = new System.Windows.Forms.NumericUpDown();
+            this.chkbxHT = new System.Windows.Forms.CheckBox();
+            this.grpbxThreadingStrategy = new System.Windows.Forms.GroupBox();
+            this.rdbtnMaxHalf = new System.Windows.Forms.RadioButton();
+            this.rdbtnMaxMinus2 = new System.Windows.Forms.RadioButton();
+            this.rdbtnMax = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.numUdVram)).BeginInit();
+            this.grpbxThreadingStrategy.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblPath
@@ -65,7 +71,7 @@
             this.chkLbFiles.HorizontalScrollbar = true;
             this.chkLbFiles.Location = new System.Drawing.Point(96, 34);
             this.chkLbFiles.Name = "chkLbFiles";
-            this.chkLbFiles.Size = new System.Drawing.Size(676, 225);
+            this.chkLbFiles.Size = new System.Drawing.Size(676, 259);
             this.chkLbFiles.TabIndex = 2;
             this.chkLbFiles.ThreeDCheckBoxes = true;
             this.chkLbFiles.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.chkLbFiles_ItemCheck);
@@ -126,11 +132,70 @@
             0,
             0});
             // 
+            // chkbxHT
+            // 
+            this.chkbxHT.AutoSize = true;
+            this.chkbxHT.Location = new System.Drawing.Point(96, 300);
+            this.chkbxHT.Name = "chkbxHT";
+            this.chkbxHT.Size = new System.Drawing.Size(85, 18);
+            this.chkbxHT.TabIndex = 7;
+            this.chkbxHT.Text = "checkBox1";
+            this.chkbxHT.UseVisualStyleBackColor = true;
+            this.chkbxHT.CheckedChanged += new System.EventHandler(this.chkbxHT_CheckedChanged);
+            // 
+            // grpbxThreadingStrategy
+            // 
+            this.grpbxThreadingStrategy.Controls.Add(this.rdbtnMaxHalf);
+            this.grpbxThreadingStrategy.Controls.Add(this.rdbtnMaxMinus2);
+            this.grpbxThreadingStrategy.Controls.Add(this.rdbtnMax);
+            this.grpbxThreadingStrategy.Location = new System.Drawing.Point(352, 300);
+            this.grpbxThreadingStrategy.Name = "grpbxThreadingStrategy";
+            this.grpbxThreadingStrategy.Size = new System.Drawing.Size(420, 48);
+            this.grpbxThreadingStrategy.TabIndex = 8;
+            this.grpbxThreadingStrategy.TabStop = false;
+            this.grpbxThreadingStrategy.Text = "ThreadedShaderCompileThreshold : NumUnusedShaderCompilingThreads";
+            // 
+            // rdbtnMaxHalf
+            // 
+            this.rdbtnMaxHalf.AutoSize = true;
+            this.rdbtnMaxHalf.Location = new System.Drawing.Point(310, 21);
+            this.rdbtnMaxHalf.Name = "rdbtnMaxHalf";
+            this.rdbtnMaxHalf.Size = new System.Drawing.Size(103, 18);
+            this.rdbtnMaxHalf.TabIndex = 2;
+            this.rdbtnMaxHalf.Tag = "";
+            this.rdbtnMaxHalf.Text = "Max/2 : Max/2";
+            this.rdbtnMaxHalf.UseVisualStyleBackColor = true;
+            // 
+            // rdbtnMaxMinus2
+            // 
+            this.rdbtnMaxMinus2.AutoSize = true;
+            this.rdbtnMaxMinus2.Location = new System.Drawing.Point(145, 21);
+            this.rdbtnMaxMinus2.Name = "rdbtnMaxMinus2";
+            this.rdbtnMaxMinus2.Size = new System.Drawing.Size(76, 18);
+            this.rdbtnMaxMinus2.TabIndex = 1;
+            this.rdbtnMaxMinus2.Tag = "2";
+            this.rdbtnMaxMinus2.Text = "Max-2 : 2";
+            this.rdbtnMaxMinus2.UseVisualStyleBackColor = true;
+            // 
+            // rdbtnMax
+            // 
+            this.rdbtnMax.AutoSize = true;
+            this.rdbtnMax.Location = new System.Drawing.Point(6, 21);
+            this.rdbtnMax.Name = "rdbtnMax";
+            this.rdbtnMax.Size = new System.Drawing.Size(65, 18);
+            this.rdbtnMax.TabIndex = 0;
+            this.rdbtnMax.Tag = "0";
+            this.rdbtnMax.Text = "Max : 0";
+            this.rdbtnMax.UseVisualStyleBackColor = true;
+            this.rdbtnMax.CheckedChanged += new System.EventHandler(this.rdbtnThreading_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 281);
+            this.ClientSize = new System.Drawing.Size(784, 388);
+            this.Controls.Add(this.grpbxThreadingStrategy);
+            this.Controls.Add(this.chkbxHT);
             this.Controls.Add(this.numUdVram);
             this.Controls.Add(this.lblVRAM);
             this.Controls.Add(this.lblStatus);
@@ -144,6 +209,8 @@
             this.Name = "MainForm";
             this.Text = "UE Optimizer";
             ((System.ComponentModel.ISupportInitialize)(this.numUdVram)).EndInit();
+            this.grpbxThreadingStrategy.ResumeLayout(false);
+            this.grpbxThreadingStrategy.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,6 +225,11 @@
 	    internal System.Windows.Forms.Label lblStatus;
 	    internal System.Windows.Forms.Label lblVRAM;
 		private System.Windows.Forms.NumericUpDown numUdVram;
+        private System.Windows.Forms.CheckBox chkbxHT;
+        private System.Windows.Forms.GroupBox grpbxThreadingStrategy;
+        private System.Windows.Forms.RadioButton rdbtnMaxHalf;
+        private System.Windows.Forms.RadioButton rdbtnMaxMinus2;
+        private System.Windows.Forms.RadioButton rdbtnMax;
     }
 }
 

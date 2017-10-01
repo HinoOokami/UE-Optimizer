@@ -18,6 +18,9 @@ namespace UE_Optimizer
 		string _path;
 		DirectoryInfo _di;
 		List<string> _filesList = new List<string>();
+	    static int threadingState;
+        int cores = Environment.ProcessorCount;
+        static int coresCount;
 	    
         string _fbDesc;
 	    string _mbNotFoundTxt;
@@ -36,6 +39,11 @@ namespace UE_Optimizer
 			HideList(true);
 			btnStart.Enabled = false;
 			lblStatus.Visible = false;
+		    rdbtnMax.Checked = true;
+		    threadingState = 0;
+		    coresCount = cores;
+		    rdbtnMaxHalf.Tag = coresCount;
+		    grpbxThreadingStrategy.Enabled = coresCount >= 4;
             
 		    LangSelector();
 		}
@@ -229,6 +237,10 @@ namespace UE_Optimizer
                          case "PoolSize":
                              subStrValue = (numUdVram.Value / 4).ToString(CultureInfo.InvariantCulture);
                              break;
+                         case "ThreadedShaderCompileThreshold":
+                         case "NumUnusedShaderCompilingThreads":
+                             subStrValue = SetThreads(str);
+                             break;
                      }
                      if (!string.IsNullOrEmpty(subStrValue))
 		                 entries[i] = subStrKey + "=" + subStrValue;
@@ -291,7 +303,29 @@ namespace UE_Optimizer
 			return subStrValue;
 		}
 
-	    async Task SearchFiles(string path)
+        static string SetThreads(string str)
+        {
+            string subStrValue;
+            if (str == "ThreadedShaderCompileThreshold")
+            {
+                int threads = (coresCount < 4) ? coresCount : coresCount - threadingState;
+
+                subStrValue = threads.ToString();
+            }
+
+            else
+            {
+                int threads = (coresCount < 4) ? 0 : threadingState;
+
+                subStrValue = threads.ToString();
+            }
+
+
+
+            return subStrValue;
+        }
+
+        async Task SearchFiles(string path)
 		{
 			try
 			{
@@ -329,6 +363,7 @@ namespace UE_Optimizer
 	                lblVRAM.Text = MyStrings.VramRus;
 	                btnStart.Text = MyStrings.StartRus;
 	                lblStatus.Text = MyStrings.StatusRus;
+	                chkbxHT.Text = MyStrings.HTEnabledRus;
 	                break;
 
 	            default:
@@ -342,8 +377,20 @@ namespace UE_Optimizer
 	                lblVRAM.Text = MyStrings.VramEng;
 	                btnStart.Text = MyStrings.StartEng;
 	                lblStatus.Text = MyStrings.StatusEng;
+	                chkbxHT.Text = MyStrings.HTEnabledEng;
 	                break;
 	        }
 	    }
+
+        void chkbxHT_CheckedChanged(object sender, EventArgs e)
+        {
+            coresCount = ((CheckBox) sender).Checked ? cores / 2 : cores;
+            rdbtnMaxHalf.Tag = coresCount / 2;
+        }
+
+        void rdbtnThreading_CheckedChanged(object sender, EventArgs e)
+        {
+            threadingState = int.Parse(((RadioButton)sender).Tag.ToString());
+        }
     }
 }
