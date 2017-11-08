@@ -189,7 +189,8 @@ namespace UE_Optimizer
 							           MessageBox.Show(ex.Message, _mbWriteErrCap, MessageBoxButtons.OK, MessageBoxIcon.Error);
 							       }
 
-							       lblStatus.Visible = true;
+							       //lblStatus.Visible = true;
+                                   this.Invoke(new MethodInvoker(delegate { lblStatus.Visible = true; }));
 							   }
 						   });
 		}
