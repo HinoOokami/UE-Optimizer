@@ -52,11 +52,9 @@ namespace UE_Optimizer
 
 	    void HideList(bool hide)
 		{
-			if (hide)
-				chkLbFiles.Hide();
+			if (hide) chkLbFiles.Hide();
 
-			else
-				chkLbFiles.Show();
+			else chkLbFiles.Show();
 		}
 
 	    List<KeyValuePair<string, string>> _configFiles = new List<KeyValuePair<string, string>>();
@@ -69,7 +67,7 @@ namespace UE_Optimizer
 			};
 
 			if (fb.ShowDialog() == DialogResult.OK)
-				_path = fb.SelectedPath;
+                _path = fb.SelectedPath;
 
             lblPath.Text = _path;
 
@@ -78,10 +76,8 @@ namespace UE_Optimizer
 			await SearchFiles(_di.ToString());
 
 			if (_filesList.Count == 0)
-			{
-				MessageBox.Show(_mbNotFoundTxt, _mbNotFoundCap, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-			}
-
+			    MessageBox.Show(_mbNotFoundTxt, _mbNotFoundCap, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+			
 			await Task.Run(() =>
 						   {
 							   foreach (var file in _filesList)
@@ -95,15 +91,15 @@ namespace UE_Optimizer
 										   {
 											   i++;
 											   var str = sr.ReadLine();
-											   if (i < 10)
+                                               if (i < 10)
 												   continue;
-
-										       if (string.IsNullOrEmpty(str) || str.Length <= 9) continue;
-										       var substr = str.Substring(0, 9);
-
-										       if (substr != "GameName=") continue;
-										       var gameName = str.Substring(9);
-										       _configFiles.Add(new KeyValuePair<string, string>(gameName, file));
+                                               if (string.IsNullOrEmpty(str) || str.Length <= 9)
+                                                   continue;
+                                               var substr = str.Substring(0, 9);
+                                               if (substr != "GameName=")
+                                                   continue;
+                                               var gameName = str.Substring(9);
+                                               _configFiles.Add(new KeyValuePair<string, string>(gameName, file));
 										       chkLbFiles.Items.Add(gameName + " - " + file);
 										       break;
 										   }
@@ -140,13 +136,14 @@ namespace UE_Optimizer
 						   {
 							   for (var i = 0; i < chkLbFiles.Items.Count; i++)
 							   {
-							       if (!chkLbFiles.GetItemChecked(i)) continue;
+							       if (!chkLbFiles.GetItemChecked(i))
+                                       continue;
 							       var fi = new FileInfo(_configFiles[i].Value);
 							       var sourceFileName = fi.FullName;
 							       var backupFileName = sourceFileName.Insert(sourceFileName.Length - 4, "_UEOptimizer_Backup");
 							       var bfi = new FileInfo(backupFileName);
-
-							       if (!bfi.Exists) File.Copy(sourceFileName, backupFileName);
+                                   if (!bfi.Exists)
+                                       File.Copy(sourceFileName, backupFileName);
 
 							       var entries = new List<string>();
 
@@ -175,12 +172,10 @@ namespace UE_Optimizer
 							           if (fi.IsReadOnly) fi.IsReadOnly = false;
 
 							           using (var sw = new StreamWriter(fi.FullName, false))
-							           {
-							               foreach (var str in entries)
-							               {
-							                   sw.WriteLine(str);
-							               }
-							           }
+                                       {
+                                           foreach (var str in entries)
+                                               sw.WriteLine(str);
+                                       }
 
 							           fi.IsReadOnly = true;
 							       }
@@ -320,8 +315,6 @@ namespace UE_Optimizer
 
                 subStrValue = threads.ToString();
             }
-
-
 
             return subStrValue;
         }

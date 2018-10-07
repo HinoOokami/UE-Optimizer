@@ -49,7 +49,7 @@
             this.lblPath.AutoSize = true;
             this.lblPath.Location = new System.Drawing.Point(15, 14);
             this.lblPath.Name = "lblPath";
-            this.lblPath.Size = new System.Drawing.Size(0, 14);
+            this.lblPath.Size = new System.Drawing.Size(0, 18);
             this.lblPath.TabIndex = 0;
             // 
             // btnBrowse
@@ -71,7 +71,7 @@
             this.chkLbFiles.HorizontalScrollbar = true;
             this.chkLbFiles.Location = new System.Drawing.Point(96, 34);
             this.chkLbFiles.Name = "chkLbFiles";
-            this.chkLbFiles.Size = new System.Drawing.Size(676, 259);
+            this.chkLbFiles.Size = new System.Drawing.Size(676, 256);
             this.chkLbFiles.TabIndex = 2;
             this.chkLbFiles.ThreeDCheckBoxes = true;
             this.chkLbFiles.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.chkLbFiles_ItemCheck);
@@ -92,7 +92,7 @@
             this.lblStatus.ForeColor = System.Drawing.Color.Green;
             this.lblStatus.Location = new System.Drawing.Point(14, 300);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(0, 19);
+            this.lblStatus.Size = new System.Drawing.Size(0, 24);
             this.lblStatus.TabIndex = 4;
             // 
             // lblVRAM
@@ -101,7 +101,7 @@
             this.lblVRAM.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblVRAM.Location = new System.Drawing.Point(10, 70);
             this.lblVRAM.Name = "lblVRAM";
-            this.lblVRAM.Size = new System.Drawing.Size(0, 14);
+            this.lblVRAM.Size = new System.Drawing.Size(0, 18);
             this.lblVRAM.TabIndex = 5;
             // 
             // numUdVram
@@ -124,7 +124,7 @@
             0});
             this.numUdVram.Name = "numUdVram";
             this.numUdVram.ReadOnly = true;
-            this.numUdVram.Size = new System.Drawing.Size(77, 22);
+            this.numUdVram.Size = new System.Drawing.Size(77, 26);
             this.numUdVram.TabIndex = 6;
             this.numUdVram.Value = new decimal(new int[] {
             2048,
@@ -137,7 +137,7 @@
             this.chkbxHT.AutoSize = true;
             this.chkbxHT.Location = new System.Drawing.Point(96, 300);
             this.chkbxHT.Name = "chkbxHT";
-            this.chkbxHT.Size = new System.Drawing.Size(85, 18);
+            this.chkbxHT.Size = new System.Drawing.Size(100, 22);
             this.chkbxHT.TabIndex = 7;
             this.chkbxHT.Text = "checkBox1";
             this.chkbxHT.UseVisualStyleBackColor = true;
@@ -160,7 +160,7 @@
             this.rdbtnMaxHalf.AutoSize = true;
             this.rdbtnMaxHalf.Location = new System.Drawing.Point(310, 21);
             this.rdbtnMaxHalf.Name = "rdbtnMaxHalf";
-            this.rdbtnMaxHalf.Size = new System.Drawing.Size(103, 18);
+            this.rdbtnMaxHalf.Size = new System.Drawing.Size(128, 22);
             this.rdbtnMaxHalf.TabIndex = 2;
             this.rdbtnMaxHalf.Tag = "";
             this.rdbtnMaxHalf.Text = "Max/2 : Max/2";
@@ -171,7 +171,7 @@
             this.rdbtnMaxMinus2.AutoSize = true;
             this.rdbtnMaxMinus2.Location = new System.Drawing.Point(145, 21);
             this.rdbtnMaxMinus2.Name = "rdbtnMaxMinus2";
-            this.rdbtnMaxMinus2.Size = new System.Drawing.Size(76, 18);
+            this.rdbtnMaxMinus2.Size = new System.Drawing.Size(93, 22);
             this.rdbtnMaxMinus2.TabIndex = 1;
             this.rdbtnMaxMinus2.Tag = "2";
             this.rdbtnMaxMinus2.Text = "Max-2 : 2";
@@ -182,7 +182,7 @@
             this.rdbtnMax.AutoSize = true;
             this.rdbtnMax.Location = new System.Drawing.Point(6, 21);
             this.rdbtnMax.Name = "rdbtnMax";
-            this.rdbtnMax.Size = new System.Drawing.Size(65, 18);
+            this.rdbtnMax.Size = new System.Drawing.Size(80, 22);
             this.rdbtnMax.TabIndex = 0;
             this.rdbtnMax.Tag = "0";
             this.rdbtnMax.Text = "Max : 0";
@@ -191,7 +191,7 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
