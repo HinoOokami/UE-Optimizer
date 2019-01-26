@@ -30,3 +30,5 @@ If you use mods for XCOM 2 you may need to find xcomengine.ini and remove ReadOn
 * If you have a bunch of Access Errors try to launch in Admin mode.
 
 * Run a game, reset graphic settings to default and set them again to your needs.
+
+* The program now has an option to select whether your CPU is HT enabled, and you can also choose ratio of ThreadedShaderCompileThreshold to NumUnusedShaderCompilingThreads Max : 0, Max-2 : 2, Max/2 : Max/2
